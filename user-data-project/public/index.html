@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">  
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Data Form</title>
 </head>
+
 <body>
     <h2>Enter Your Details</h2>
     <form id="userForm">
@@ -35,7 +37,9 @@
             const response = await fetch('/submit', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',                    
+                    'Content-Type': 'application/json',
+                    credentials: "include",
+                    withCredentials: true,
                 },
                 body: JSON.stringify(formData)
             });
@@ -45,4 +49,5 @@
         });
     </script>
 </body>
+
 </html>

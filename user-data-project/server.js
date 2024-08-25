@@ -1,12 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const xlsx = require('xlsx');
+const cors = require('cors')
 const fs = require('fs');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+app.use(
+    cors({
+        origin: [
+            "https://serverless-six-pink.vercel.app",
+            "http://localhost:5173",
+            "http://localhost:3000",
+        ],
+        credentials: true,
+    })
+)
 // Middleware
 app.use(bodyParser.json());
 app.use(express.static('public')); // To serve the index.html
